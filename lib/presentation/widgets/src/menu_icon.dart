@@ -7,11 +7,13 @@ import 'package:payung_teduh/presentation/widgets/src/ripple.dart';
 class MenuIcon extends StatelessWidget {
   final IconData icon;
   final String text;
+  final Color? backgroundColor;
   final VoidCallback? onTap;
   const MenuIcon({
     super.key,
     required this.icon,
     required this.text,
+    this.backgroundColor,
     this.onTap,
   });
 
@@ -26,7 +28,7 @@ class MenuIcon extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.deepPurple[400],
+            color: backgroundColor ?? Colors.deepPurple[400],
           ),
           child: Icon(
             icon,

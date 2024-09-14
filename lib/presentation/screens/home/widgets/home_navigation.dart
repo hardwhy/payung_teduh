@@ -13,8 +13,8 @@ class HomeNavigation extends StatelessWidget {
       expand: true,
       snap: true,
       maxChildSize: .6,
-      minChildSize: .2,
-      initialChildSize: .2,
+      minChildSize: .22,
+      initialChildSize: .22,
       builder: (context, scrollController) => Container(
         decoration: BoxDecoration(
           color: Colors.deepPurple[100],
@@ -27,7 +27,7 @@ class HomeNavigation extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 16),
+              margin: const EdgeInsets.symmetric(vertical: 16),
               decoration: BoxDecoration(
                 color: Colors.deepPurple[200],
                 borderRadius: BorderRadius.circular(60),
@@ -56,38 +56,34 @@ class HomeNavigation extends StatelessWidget {
                     onTap: () {},
                   ),
                   MenuIcon(
-                    icon: Icons.trolley,
+                    icon: Icons.shopping_cart_outlined,
                     text: 'Cart',
                     onTap: () {},
                   ),
                   MenuIcon(
-                    icon: Icons.home_outlined,
-                    text: 'Home',
+                    icon: Icons.receipt_long_sharp,
+                    text: 'Transactions',
                     onTap: () {},
                   ),
                   MenuIcon(
-                    icon: Icons.search,
-                    text: 'Search',
+                    icon: Icons.confirmation_num_outlined,
+                    text: 'Voucher',
                     onTap: () {},
                   ),
                   MenuIcon(
-                    icon: Icons.trolley,
-                    text: 'Cart',
+                    icon: Icons.location_on_outlined,
+                    text: 'Address',
                     onTap: () {},
                   ),
                   MenuIcon(
-                    icon: Icons.home_outlined,
-                    text: 'Home',
+                    icon: Icons.people_outline,
+                    text: 'Connections',
                     onTap: () {},
                   ),
                   MenuIcon(
-                    icon: Icons.search,
-                    text: 'Search',
-                    onTap: () {},
-                  ),
-                  MenuIcon(
-                    icon: Icons.trolley,
-                    text: 'Cart',
+                    icon: Icons.more_horiz,
+                    backgroundColor: Colors.black26,
+                    text: 'More',
                     onTap: () {},
                   ),
                 ],

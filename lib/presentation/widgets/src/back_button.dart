@@ -8,6 +8,7 @@ class Back extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Ripplify(
+      rippleBorderRadius: BorderRadius.circular(90),
       onTap: onTap ?? () => Navigator.pop(context),
       child: const Icon(
         Icons.arrow_back,

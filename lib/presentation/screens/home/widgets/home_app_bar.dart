@@ -9,39 +9,42 @@ class HomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Paragraph('Gutten Nacht!'),
-            H3(
-              'Ayi Hardiyanto',
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Paragraph('Gutten Nacht!'),
+              H3(
+                'Ayi Hardiyanto',
+                color: Colors.deepPurple,
+              )
+            ],
+          ),
+          const Spacer(),
+          Ripplify(
+            child: const Icon(
+              Icons.notifications_outlined,
               color: Colors.deepPurple,
-            )
-          ],
-        ),
-        const Spacer(),
-        Ripplify(
-          child: const Icon(
-            Icons.notifications_outlined,
-            color: Colors.deepPurple,
-            size: 30,
+              size: 30,
+            ),
+            onTap: () {},
           ),
-          onTap: () {},
-        ),
-        const SizedBox(width: 8),
-        Ripplify(
-          onTap: () {},
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-              shape: BoxShape.circle, color: Colors.deepPurple[200]),
-          child: Paragraph.bold(
-            'A',
-            color: Colors.deepPurple[50],
-          ),
-        )
-      ],
+          const SizedBox(width: 8),
+          Ripplify(
+            onTap: () {},
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: Colors.deepPurple[200]),
+            child: Paragraph.bold(
+              'A',
+              color: Colors.deepPurple[50],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

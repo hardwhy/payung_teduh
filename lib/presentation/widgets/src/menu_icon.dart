@@ -8,12 +8,16 @@ class MenuIcon extends StatelessWidget {
   final IconData icon;
   final String text;
   final Color? backgroundColor;
+  final Color? iconColor;
+  final Color? textColor;
   final VoidCallback? onTap;
   const MenuIcon({
     super.key,
     required this.icon,
     required this.text,
     this.backgroundColor,
+    this.iconColor,
+    this.textColor,
     this.onTap,
   });
 
@@ -33,13 +37,13 @@ class MenuIcon extends StatelessWidget {
           child: Icon(
             icon,
             size: 30,
-            color: Colors.deepPurple[50],
+            color: iconColor ?? Colors.deepPurple[50],
           ),
         ),
         const SizedBox(height: 8),
         Paragraph.bold(
           text,
-          color: Colors.deepPurple[400],
+          color: textColor ?? Colors.deepPurple[400],
         )
       ],
     );

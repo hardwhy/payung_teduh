@@ -7,23 +7,19 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[50],
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(color: Colors.deepPurple[50]),
+        decoration: const BoxDecoration(color: Colors.white),
         child: const Stack(
           children: [
             SafeArea(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    HomeAppBar(),
-                    SizedBox(height: 20),
-                    HomeContent(),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  HomeAppBar(),
+                  SizedBox(height: 20),
+                  HomeContent(),
+                ],
               ),
             ),
             Positioned.fill(child: HomeNavigation()),

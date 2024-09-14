@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:payung_teduh/presentation/screens/home/widgets/home_content_section.dart';
 import 'package:payung_teduh/presentation/screens/welcome/welcome_images.dart';
 
 import 'package:payung_teduh/presentation/themes/themes.dart';
@@ -47,7 +48,7 @@ class _HomeContentState extends State<HomeContent>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Category(
+              HomeContentSection(
                 title: 'Financial Product',
                 menus: [
                   MenuIcon(
@@ -88,7 +89,7 @@ class _HomeContentState extends State<HomeContent>
                 ],
               ),
               const SizedBox(height: 24),
-              Category(
+              HomeContentSection(
                 title: 'Category Selections',
                 menus: [
                   MenuIcon(
@@ -205,35 +206,6 @@ class WellnessCard extends StatelessWidget {
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class Category extends StatelessWidget {
-  final String title;
-  final List<MenuIcon> menus;
-  const Category({
-    super.key,
-    required this.title,
-    this.menus = const [],
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          H3(title),
-          const SizedBox(height: 24),
-          Wrap(
-            spacing: 16,
-            runSpacing: 16,
-            children: [...menus],
-          )
         ],
       ),
     );

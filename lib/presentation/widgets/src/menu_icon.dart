@@ -41,7 +41,7 @@ class MenuIcon extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Paragraph.bold(
+        Paragraph(
           text,
           color: textColor ?? Colors.deepPurple[400],
         )

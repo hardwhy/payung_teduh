@@ -42,6 +42,22 @@ class TextStyles {
     height: 20 / 14,
   );
 
+  static TextStyle buttonBig = const TextStyle(
+    fontFamily: FontFamily.montserrat,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w700,
+    fontSize: 16,
+    height: 24 / 16,
+  );
+
+  static TextStyle buttonSmall = const TextStyle(
+    fontFamily: FontFamily.montserrat,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w700,
+    fontSize: 12,
+    height: 18 / 12,
+  );
+
 
   static TextStyle body1Bold = const TextStyle(
     fontFamily: FontFamily.montserrat,

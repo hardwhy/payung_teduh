@@ -3,6 +3,8 @@ import 'package:payung_teduh/presentation/themes/src/text_styles.dart';
 
 enum VariantStyle { bold, regular }
 
+enum VariantSize { big, small }
+
 abstract class Typography extends StatelessWidget {
   final String text;
   final Color? color;
@@ -152,5 +154,47 @@ class H3 extends Typography {
   @override
   TextStyle getTextStyle() {
     return TextStyles.h3;
+  }
+}
+
+class ButtonMontserrat extends Typography {
+  final VariantSize size;
+  const ButtonMontserrat(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    required this.size,
+  }) : super(text: text);
+
+  const ButtonMontserrat.big(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    super.maxLines,
+  })  : size = VariantSize.big,
+        super(text: text);
+
+  const ButtonMontserrat.small(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    super.maxLines,
+  })  : size = VariantSize.small,
+        super(text: text);
+
+  @override
+  TextStyle getTextStyle() {
+    switch (size) {
+      case VariantSize.big:
+        return TextStyles.buttonBig;
+      default:
+        return TextStyles.buttonSmall;
+    }
   }
 }

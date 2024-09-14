@@ -110,7 +110,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       BorderRadius.circular(8), // Adjust border radius here
                 ),
               ),
-              child: const Body1(
+              child: const ButtonMontserrat.small(
                 'Let\'s Start',
                 color: Colors.white,
               ),
@@ -123,7 +123,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   SizedBox _buildPages() {
     return SizedBox(
-      height: 380,
+      height: 385,
       child: PageView.builder(
         itemCount: _items.length,
         padEnds: true,

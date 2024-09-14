@@ -19,7 +19,7 @@ class WelcomeStep extends StatelessWidget {
         children: [
           SvgPicture.asset(data.imagePath, height: 200),
           const SizedBox(height: 16),
-          Body1.bold(data.title, color: Colors.deepPurple),
+          H2(data.title, color: Colors.deepPurple),
           const SizedBox(height: 16),
           Paragraph(data.description, align: TextAlign.center)
         ],

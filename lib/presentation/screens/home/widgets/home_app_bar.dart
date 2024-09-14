@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payung_teduh/presentation/themes/themes.dart';
+import 'package:payung_teduh/presentation/widgets/widgets.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -14,21 +15,28 @@ class HomeAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Paragraph('Gutten Nacht!'),
-            Body1.bold(
+            H3(
               'Ayi Hardiyanto',
               color: Colors.deepPurple,
             )
           ],
         ),
         const Spacer(),
-        const Icon(Icons.notifications_outlined,
-            color: Colors.deepPurple),
+        Ripplify(
+          child: const Icon(
+            Icons.notifications_outlined,
+            color: Colors.deepPurple,
+            size: 30,
+          ),
+          onTap: () {},
+        ),
         const SizedBox(width: 8),
-        Container(
-          padding: const EdgeInsets.all(8),
+        Ripplify(
+          onTap: () {},
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
               shape: BoxShape.circle, color: Colors.deepPurple[200]),
-          child: Body1.bold(
+          child: Paragraph.bold(
             'A',
             color: Colors.deepPurple[50],
           ),

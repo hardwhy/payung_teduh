@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:payung_teduh/presentation/themes/themes.dart';
+import 'package:payung_teduh/presentation/widgets/widgets.dart';
 
 class HomeNavigation extends StatelessWidget {
   const HomeNavigation({
@@ -10,7 +12,7 @@ class HomeNavigation extends StatelessWidget {
     return DraggableScrollableSheet(
       expand: true,
       snap: true,
-      maxChildSize: .5,
+      maxChildSize: .6,
       minChildSize: .2,
       initialChildSize: .2,
       builder: (context, scrollController) => Container(
@@ -27,7 +29,7 @@ class HomeNavigation extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(top: 16),
               decoration: BoxDecoration(
-                color: Colors.deepPurple[50],
+                color: Colors.deepPurple[200],
                 borderRadius: BorderRadius.circular(60),
               ),
               width: 60,
@@ -37,43 +39,56 @@ class HomeNavigation extends StatelessWidget {
               child: GridView.count(
                 physics: const ClampingScrollPhysics(),
                 crossAxisCount: 3,
-                mainAxisSpacing: 30,
-                crossAxisSpacing: 25,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
                 padding: const EdgeInsets.symmetric(vertical: 20),
-                childAspectRatio: 1.5,
+                childAspectRatio: 1,
                 controller: scrollController,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.deepPurple[200]),
-                    // padding: const EdgeInsets.all(8),
-                    child: Icon(
-                      Icons.home_outlined,
-                      size: 30,
-                      color: Colors.deepPurple[50],
-                    ),
+                  MenuIcon(
+                    icon: Icons.home_outlined,
+                    text: 'Home',
+                    onTap: () {},
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.deepPurple[200],
-                    ),
-                    padding: const EdgeInsets.all(8),
-                    child: Icon(
-                      Icons.search,
-                      size: 30,
-                      color: Colors.deepPurple[50],
-                    ),
+                  MenuIcon(
+                    icon: Icons.search,
+                    text: 'Search',
+                    onTap: () {},
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.deepPurple[200]),
-                    padding: const EdgeInsets.all(8),
-                    child: Icon(
-                      Icons.trolley,
-                      size: 30,
-                      color: Colors.deepPurple[50],
-                    ),
+                  MenuIcon(
+                    icon: Icons.trolley,
+                    text: 'Cart',
+                    onTap: () {},
+                  ),
+                  MenuIcon(
+                    icon: Icons.home_outlined,
+                    text: 'Home',
+                    onTap: () {},
+                  ),
+                  MenuIcon(
+                    icon: Icons.search,
+                    text: 'Search',
+                    onTap: () {},
+                  ),
+                  MenuIcon(
+                    icon: Icons.trolley,
+                    text: 'Cart',
+                    onTap: () {},
+                  ),
+                  MenuIcon(
+                    icon: Icons.home_outlined,
+                    text: 'Home',
+                    onTap: () {},
+                  ),
+                  MenuIcon(
+                    icon: Icons.search,
+                    text: 'Search',
+                    onTap: () {},
+                  ),
+                  MenuIcon(
+                    icon: Icons.trolley,
+                    text: 'Cart',
+                    onTap: () {},
                   ),
                 ],
               ),

@@ -18,7 +18,7 @@ class HomeAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Paragraph('Gutten Nacht!'),
-              H3(
+              H2(
                 'Ayi Hardiyanto',
                 color: Colors.deepPurple,
               )

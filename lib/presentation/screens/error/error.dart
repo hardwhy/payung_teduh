@@ -10,13 +10,7 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        leading: Ripplify(
-          child: const Icon(Icons.arrow_back),
-          onTap: () => Navigator.pop(context),
-        ),
-      ),
+      appBar: AppBar(elevation: 0, leading: const Back()),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(

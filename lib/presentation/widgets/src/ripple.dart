@@ -41,8 +41,8 @@ abstract class RippleWrapper extends StatelessWidget {
       Material(
         color: Colors.transparent,
         child: InkWell(
-          highlightColor: rippleColor ?? Colors.black26,
-          splashColor: (rippleColor ?? Colors.black38).withOpacity(.5),
+          highlightColor: rippleColor ?? Colors.deepPurple[100],
+          splashColor: (rippleColor ?? Colors.deepPurple).withOpacity(.5),
           borderRadius: rippleBorderRadius ?? BorderRadius.circular(8),
           onTap: onTap,
           child: childContainer(context, child),

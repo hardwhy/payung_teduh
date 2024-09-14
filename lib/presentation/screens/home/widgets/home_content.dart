@@ -16,11 +16,11 @@ class HomeContent extends StatefulWidget {
 
 class _HomeContentState extends State<HomeContent>
     with SingleTickerProviderStateMixin {
-  late TabController _controller;
+  // late TabController _controller;
   @override
   void initState() {
     super.initState();
-    _controller = TabController(length: 2, vsync: this);
+    // _controller = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -124,9 +124,15 @@ class _HomeContentState extends State<HomeContent>
                     const Spacer(),
                     Ripplify(
                       onTap: () {},
-                      child: const Icon(Icons.arrow_upward),
+                      child: const Icon(
+                        Icons.arrow_upward,
+                        color: Colors.deepPurple,
+                      ),
                     ),
-                    const Icon(Icons.sort),
+                    const Icon(
+                      Icons.sort,
+                      color: Colors.deepPurple,
+                    ),
                   ],
                 ),
               ),

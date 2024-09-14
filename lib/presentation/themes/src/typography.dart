@@ -5,6 +5,8 @@ enum VariantStyle { bold, regular }
 
 enum VariantSize { big, small }
 
+enum Variant { strong, normal, large, small }
+
 abstract class Typography extends StatelessWidget {
   final String text;
   final Color? color;
@@ -195,6 +197,93 @@ class ButtonMontserrat extends Typography {
         return TextStyles.buttonBig;
       default:
         return TextStyles.buttonSmall;
+    }
+  }
+}
+
+class InterfaceText extends Typography {
+  final Variant? variant;
+  const InterfaceText(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    super.maxLines,
+    this.variant,
+  }) : super(text: text);
+
+  const InterfaceText.strong(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    super.maxLines,
+  })  : variant = Variant.strong,
+        super(text: text);
+
+  const InterfaceText.normal(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    super.maxLines,
+  })  : variant = Variant.normal,
+        super(text: text);
+
+  @override
+  TextStyle getTextStyle() {
+    switch (variant) {
+      case Variant.strong:
+        return TextStyles.interfaceStrong;
+      default:
+        return TextStyles.interfaceNormal;
+    }
+  }
+}
+
+class Caption extends Typography {
+  final Variant? variant;
+  const Caption(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    this.variant,
+  }): super(text: text);
+
+  const Caption.strong(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    super.maxLines,
+  }) : 
+  variant = Variant.strong,
+  super(text: text);
+
+  const Caption.normal(
+    String text, {
+    super.key,
+    super.color,
+    super.overflow,
+    super.align,
+    super.maxLines,
+  }) : 
+  variant = Variant.normal,
+  super(text: text);
+
+  @override
+  TextStyle getTextStyle() {
+    switch (variant) {
+      case Variant.strong:
+        return TextStyles.captionStrong;
+      default:
+        return TextStyles.captionNormal;
     }
   }
 }

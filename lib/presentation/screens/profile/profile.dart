@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
         name: 'Personal Information',
         icon: Icons.account_circle_outlined,
         onTap: () {
-          Navigator.pushNamed(context, Routes.profileEdit);
+          Navigator.pushNamed(context, Routes.personalInfo);
         },
       ),
       ProfileItem(
@@ -49,75 +49,89 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-        child: Column(
+        child: Stack(
           children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                  color: Colors.deepPurple[50],
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: Shadows.elevation1(color: Colors.deepPurple)),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            // Align(
+            //   alignment: Alignment.bottomRight,
+            //   child: SvgPicture.asset(
+            //     ImageAssets.relax,
+            //     height: 200,
+            //   ),
+            // ),
+            Positioned.fill(
+              child: Column(
                 children: [
                   Container(
-                    height: 56,
-                    width: 56,
-                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.deepPurple[100],
-                    ),
-                    child: const H2(
-                      'A',
-                      color: Colors.white,
+                        color: Colors.deepPurple[50],
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow:
+                            Shadows.elevation1(color: Colors.deepPurple)),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 56,
+                          width: 56,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.deepPurple[100],
+                          ),
+                          child: const H2(
+                            'A',
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        const Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            H3(
+                              'Ayi Hardiyanto',
+                            ),
+                            Paragraph(
+                              '17 Year(s)',
+                              color: Colors.black45,
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
-                  const SizedBox(width: 16),
-                  const Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      H3(
-                        'Ayi Hardiyanto',
-                      ),
-                      Paragraph(
-                        '17 Year(s)',
-                        color: Colors.black45,
-                      )
-                    ],
+                  const SizedBox(height: 40),
+                  Flexible(
+                    child: ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final item = profileItems.elementAtOrNull(index);
+                        return Ripplify(
+                          onTap: item?.onTap,
+                          padding: const EdgeInsets.all(8),
+                          child: Row(
+                            children: [
+                              Icon(
+                                item?.icon,
+                                color: Colors.deepPurple,
+                              ),
+                              const SizedBox(width: 16),
+                              Paragraph(
+                                '${item?.name}',
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      separatorBuilder: (context, index) => const Divider(),
+                      itemCount: profileItems.length,
+                    ),
                   )
                 ],
               ),
             ),
-            const SizedBox(height: 40),
-            Flexible(
-              child: ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  final item = profileItems.elementAtOrNull(index);
-                  return Ripplify(
-                    onTap: item?.onTap,
-                    padding: const EdgeInsets.all(8),
-                    child: Row(
-                      children: [
-                        Icon(
-                          item?.icon,
-                          color: Colors.deepPurple,
-                        ),
-                        const SizedBox(width: 16),
-                        Paragraph(
-                          '${item?.name}',
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index) => const Divider(),
-                itemCount: profileItems.length,
-              ),
-            )
           ],
         ),
       ),

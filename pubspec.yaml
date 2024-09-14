@@ -30,11 +30,13 @@ environment:
 dependencies:
   bloc: ^8.1.4
   cupertino_icons: ^1.0.6
+  easy_stepper: ^0.8.5+1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_svg: ^2.0.10+1
   injectable: ^2.4.4
+  intl: ^0.19.0
   shared_preferences: ^2.3.2
   sqflite: ^2.3.3+1
 

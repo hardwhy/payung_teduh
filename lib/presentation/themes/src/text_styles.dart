@@ -89,4 +89,38 @@ class TextStyles {
     fontSize: 10,
     height: 16 / 10,
   );
+
+  static TextStyle interfaceStrong = const TextStyle(
+    fontFamily: FontFamily.dmSans,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+    height: 24 / 16,
+    letterSpacing: 0.15,
+  );
+
+  static TextStyle interfaceNormal = const TextStyle(
+    fontFamily: FontFamily.dmSans,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+    height: 24 / 16,
+    letterSpacing: 0.15,
+  );
+
+  static TextStyle captionStrong = const TextStyle(
+    fontFamily: FontFamily.dmSans,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w500,
+    fontSize: 12,
+    height: 16 / 12,
+  );
+
+  static TextStyle captionNormal = const TextStyle(
+    fontFamily: FontFamily.dmSans,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    height: 16 / 12,
+  );
 }

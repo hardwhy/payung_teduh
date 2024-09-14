@@ -1,11 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:payung_teduh/common/route/route.dart';
 import 'package:payung_teduh/domain/domain.dart';
 import 'package:payung_teduh/presentation/screens/welcome/cubits/welcome_cubit.dart';
 import 'package:payung_teduh/presentation/screens/welcome/welcome_images.dart';
 import 'package:payung_teduh/presentation/screens/welcome/widgets/step.dart';
-import 'package:payung_teduh/presentation/themes/themes.dart';
+import 'package:payung_teduh/presentation/widgets/widgets.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -99,21 +101,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             width: double.infinity,
-            child: TextButton(
-              onPressed: () {
+            child: Knob(
+              title: 'Let\'s Start',
+              onTap: () {
                 context.welcomeCubit.setHasInitiated();
               },
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.deepPurple, // Button background color
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(8), // Adjust border radius here
-                ),
-              ),
-              child: const ButtonMontserrat.small(
-                'Let\'s Start',
-                color: Colors.white,
-              ),
             ),
           ),
         );

@@ -16,7 +16,7 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    sheetExtent = ValueNotifier(0);
+    sheetExtent = ValueNotifier(.22);
   }
 
   @override

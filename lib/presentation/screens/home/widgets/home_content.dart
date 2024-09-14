@@ -135,7 +135,7 @@ class _HomeContentState extends State<HomeContent>
                 crossAxisCount: 2,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
-                childAspectRatio: 9 / 10,
+                childAspectRatio: 9 / 12,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -170,40 +170,44 @@ class WellnessCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16),
-                  topRight: Radius.circular(16),
-                ),
-              ),
-              width: double.infinity,
-              child: SvgPicture.asset(
-                WelcomeImages.page1,
-                height: 80,
+          Container(
+            height: 100,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
               ),
             ),
+            width: double.infinity,
+            child: SvgPicture.asset(
+              WelcomeImages.page1,
+              height: 80,
+            ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Paragraph(
-                  'Digital Voucer of Indomart',
-                  color: Colors.deepPurple,
-                ),
-                SizedBox(height: 16),
-                Paragraph.bold(
-                  'Rp12.000,00',
-                ),
-                Body1(
-                  'Limited Offer',
-                  color: Colors.black54,
-                ),
-              ],
+          const Flexible(
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Paragraph(
+                    'Digital Voucer of Indomart and Alfamart merged and Polimerisated',
+                    color: Colors.deepPurple,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Spacer(),
+                  Paragraph.bold(
+                    'Rp12.000,00',
+                  ),
+                  Body1(
+                    'Limited Offer',
+                    color: Colors.black54,
+                  ),
+                ],
+              ),
             ),
           ),
         ],

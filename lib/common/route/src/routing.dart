@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:payung_teduh/presentation/screens/error/error.dart';
 import 'package:payung_teduh/presentation/screens/home/home_screen.dart';
 import 'package:payung_teduh/presentation/screens/welcome/welcome_screen.dart';
 
@@ -11,8 +12,8 @@ Route generateRouting(RouteSettings settings) {
       return CupertinoPageRoute(builder: (context) => const WelcomeScreen());
     case Routes.home:
       return CupertinoPageRoute(builder: (context) => const HomeScreen());
-
+    case Routes.profile:
     default:
-      return CupertinoPageRoute(builder: (context) => const Text('Error'));
+      return CupertinoPageRoute(builder: (context) => const ErrorScreen());
   }
 }

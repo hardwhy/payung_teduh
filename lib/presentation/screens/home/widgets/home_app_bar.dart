@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payung_teduh/common/route/route.dart';
 import 'package:payung_teduh/presentation/themes/themes.dart';
 import 'package:payung_teduh/presentation/widgets/widgets.dart';
 
@@ -34,7 +35,9 @@ class HomeAppBar extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           Ripplify(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, Routes.profile);
+            },
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
                 shape: BoxShape.circle, color: Colors.deepPurple[200]),

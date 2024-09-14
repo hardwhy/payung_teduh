@@ -43,7 +43,7 @@ class HomeScreenState extends State<HomeScreen> {
                 return Align(
                   alignment: Alignment.topCenter,
                   child: IgnorePointer(
-                    ignoring: true,
+                    ignoring: value < .23,
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 100),
                       color: Colors.black.withOpacity(value - .22),

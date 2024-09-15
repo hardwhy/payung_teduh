@@ -1,13 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:payung_teduh/common/constants/constants.dart';
 import 'package:payung_teduh/domain/domain.dart';
 import 'package:payung_teduh/presentation/screens/home/cubits/wellness/wellness_cubit.dart';
 import 'package:payung_teduh/presentation/screens/home/widgets/home_content_section.dart';
-import 'package:payung_teduh/presentation/screens/welcome/welcome_images.dart';
 
 import 'package:payung_teduh/presentation/themes/themes.dart';
 import 'package:payung_teduh/presentation/widgets/widgets.dart';
@@ -48,164 +46,168 @@ class _HomeContentState extends State<HomeContent>
           (MediaQuery.of(context).size.height * .22),
       child: RefreshIndicator(
         onRefresh: () async {},
-        child: SingleChildScrollView(
-          padding: EdgeInsets.zero,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HomeContentSection(
-                title: 'Financial Product',
-                menus: [
-                  MenuIcon(
-                    icon: Icons.monitor_heart_outlined,
-                    text: 'FinHealth',
-                    iconColor: Colors.deepPurple,
-                    backgroundColor: Colors.deepPurple[50],
-                    onTap: () {},
-                  ),
-                  MenuIcon(
-                    icon: Icons.directions_car_outlined,
-                    text: 'FinCar',
-                    iconColor: Colors.deepPurple,
-                    backgroundColor: Colors.deepPurple[50],
-                    onTap: () {},
-                  ),
-                  MenuIcon(
-                    icon: Icons.house_outlined,
-                    text: 'FinProp',
-                    iconColor: Colors.deepPurple,
-                    backgroundColor: Colors.deepPurple[50],
-                    onTap: () {},
-                  ),
-                  MenuIcon(
-                    icon: Icons.monetization_on_outlined,
-                    text: 'Chip In',
-                    iconColor: Colors.deepPurple,
-                    backgroundColor: Colors.deepPurple[50],
-                    onTap: () {},
-                  ),
-                  MenuIcon(
-                    icon: Icons.square_outlined,
-                    text: 'Pilgrimage',
-                    iconColor: Colors.deepPurple,
-                    backgroundColor: Colors.deepPurple[50],
-                    onTap: () {},
-                  )
-                ],
-              ),
-              const SizedBox(height: 24),
-              HomeContentSection(
-                title: 'Category Selections',
-                menus: [
-                  MenuIcon(
-                    icon: Icons.monitor_heart_outlined,
-                    text: 'FinHealth',
-                    iconColor: Colors.deepPurple,
-                    backgroundColor: Colors.deepPurple[50],
-                    onTap: () {},
-                  ),
-                  MenuIcon(
-                    icon: Icons.directions_car_outlined,
-                    text: 'FinCar',
-                    iconColor: Colors.deepPurple,
-                    backgroundColor: Colors.deepPurple[50],
-                    onTap: () {},
-                  ),
-                  MenuIcon(
-                    icon: Icons.house_outlined,
-                    text: 'FinProp',
-                    iconColor: Colors.deepPurple,
-                    backgroundColor: Colors.deepPurple[50],
-                    onTap: () {},
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
-                    const H3('Explore Wellness'),
-                    const Spacer(),
-                    BlocBuilder<WellnessCubit, WellnessState>(
-                      builder: (context, state) {
-                        return Ripplify(
-                          onTap: context.wellnessCubit.sort,
-                          child: Icon(
-                            state.isAscending
-                                ? Icons.arrow_downward
-                                : Icons.arrow_upward,
-                            color: Colors.deepPurple,
-                          ),
-                        );
-                      },
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.zero,
+            primary: false,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                HomeContentSection(
+                  title: 'Financial Product',
+                  menus: [
+                    MenuIcon(
+                      icon: Icons.monitor_heart_outlined,
+                      text: 'FinHealth',
+                      iconColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurple[50],
+                      onTap: () {},
                     ),
-                    const Icon(
-                      Icons.sort,
-                      color: Colors.deepPurple,
+                    MenuIcon(
+                      icon: Icons.directions_car_outlined,
+                      text: 'FinCar',
+                      iconColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurple[50],
+                      onTap: () {},
+                    ),
+                    MenuIcon(
+                      icon: Icons.house_outlined,
+                      text: 'FinProp',
+                      iconColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurple[50],
+                      onTap: () {},
+                    ),
+                    MenuIcon(
+                      icon: Icons.monetization_on_outlined,
+                      text: 'Chip In',
+                      iconColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurple[50],
+                      onTap: () {},
+                    ),
+                    MenuIcon(
+                      icon: Icons.square_outlined,
+                      text: 'Pilgrimage',
+                      iconColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurple[50],
+                      onTap: () {},
+                    )
+                  ],
+                ),
+                const SizedBox(height: 24),
+                HomeContentSection(
+                  title: 'Category Selections',
+                  menus: [
+                    MenuIcon(
+                      icon: Icons.monitor_heart_outlined,
+                      text: 'FinHealth',
+                      iconColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurple[50],
+                      onTap: () {},
+                    ),
+                    MenuIcon(
+                      icon: Icons.directions_car_outlined,
+                      text: 'FinCar',
+                      iconColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurple[50],
+                      onTap: () {},
+                    ),
+                    MenuIcon(
+                      icon: Icons.house_outlined,
+                      text: 'FinProp',
+                      iconColor: Colors.deepPurple,
+                      backgroundColor: Colors.deepPurple[50],
+                      onTap: () {},
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(height: 24),
-              BlocBuilder<WellnessCubit, WellnessState>(
-                builder: (context, state) {
-                  if (state.wellnessList.isEmpty) {
+                const SizedBox(height: 24),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      const H3('Explore Wellness'),
+                      const Spacer(),
+                      BlocBuilder<WellnessCubit, WellnessState>(
+                        builder: (context, state) {
+                          return Ripplify(
+                            onTap: context.wellnessCubit.sort,
+                            child: Icon(
+                              state.isAscending
+                                  ? Icons.arrow_downward
+                                  : Icons.arrow_upward,
+                              color: Colors.deepPurple,
+                            ),
+                          );
+                        },
+                      ),
+                      const Icon(
+                        Icons.sort,
+                        color: Colors.deepPurple,
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 24),
+                BlocBuilder<WellnessCubit, WellnessState>(
+                  builder: (context, state) {
+                    if (state.wellnessList.isEmpty) {
+                      return Column(
+                        children: [
+                          const Empty(
+                            imageAsset: ImageAssets.empty,
+                            imageSize: 200,
+                            title: 'Nothing to see here',
+                            description:
+                                'Come back later, you might find something interesing, Ciao!',
+                          ),
+                          const SizedBox(height: 16),
+                          Knob(
+                            title: 'Generate 6 New Wellnesses',
+                            onTap: context.wellnessCubit.generateData,
+                          )
+                        ],
+                      );
+                    }
+                    if (state.isLoading) {
+                      return const CircularProgressIndicator(
+                        color: Colors.deepPurple,
+                      );
+                    }
                     return Column(
                       children: [
-                        const Empty(
-                          imageAsset: ImageAssets.empty,
-                          imageSize: 200,
-                          title: 'Nothing to see here',
-                          description:
-                              'Come back later, you might find something interesing, Ciao!',
+                        GridView.count(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 16,
+                          childAspectRatio: 9 / 12,
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          primary: false,
+                          children: List.generate(
+                            state.wellnessList.length,
+                            (index) => WellnessCard(
+                              wellness: state.wellnessList.elementAt(index),
+                            ),
+                          ),
                         ),
                         const SizedBox(height: 16),
-                        Knob(
-                          title: 'Generate 6 New Wellnesses',
-                          onTap: context.wellnessCubit.generateData,
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          width: double.infinity,
+                          child: Knob(
+                            title: 'Clear Wellnesses',
+                            backgroundColor: Colors.red,
+                            onTap: context.wellnessCubit.clearData,
+                          ),
                         )
                       ],
                     );
-                  }
-                  if (state.isLoading) {
-                    return const CircularProgressIndicator(
-                      color: Colors.deepPurple,
-                    );
-                  }
-                  return Column(
-                    children: [
-                      GridView.count(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 16,
-                        crossAxisSpacing: 16,
-                        childAspectRatio: 9 / 12,
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        children: List.generate(
-                          state.wellnessList.length,
-                          (index) => WellnessCard(
-                            wellness: state.wellnessList.elementAt(index),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        width: double.infinity,
-                        child: Knob(
-                          title: 'Clear Wellnesses',
-                          backgroundColor: Colors.red,
-                          onTap: context.wellnessCubit.clearData,
-                        ),
-                      )
-                    ],
-                  );
-                },
-              ),
-              const SizedBox(height: kToolbarHeight * 3)
-            ],
+                  },
+                ),
+                const SizedBox(height: kToolbarHeight * 3)
+              ],
+            ),
           ),
         ),
       ),

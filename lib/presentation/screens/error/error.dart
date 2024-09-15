@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:payung_teduh/common/constants/constants.dart';
-import 'package:payung_teduh/presentation/themes/themes.dart';
 import 'package:payung_teduh/presentation/widgets/widgets.dart';
 
 class ErrorScreen extends StatelessWidget {

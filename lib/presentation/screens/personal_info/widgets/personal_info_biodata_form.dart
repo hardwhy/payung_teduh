@@ -46,55 +46,20 @@ class PersonalInfoBiodataForm extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const DropdownField<String>(
-            label: 'Province',
+            label: 'Gender',
             isRequired: true,
             values: [
               DropdownMenuItem(
-                value: 'Sumatera Utara',
+                value: 'Male',
                 child: Paragraph(
-                  'Sumatera Utara',
+                  'Male',
                   color: Colors.black87,
                 ),
               ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          const DropdownField<String>(
-            label: 'City/Regency',
-            isRequired: true,
-            values: [
               DropdownMenuItem(
-                value: 'Medan',
+                value: 'Female',
                 child: Paragraph(
-                  'Medan',
-                  color: Colors.black87,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          const DropdownField<String>(
-            label: 'District',
-            isRequired: true,
-            values: [
-              DropdownMenuItem(
-                value: 'Medan Selayang',
-                child: Paragraph(
-                  'Medan Selayang',
-                  color: Colors.black87,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          const DropdownField<String>(
-            label: 'Urban Village',
-            isRequired: true,
-            values: [
-              DropdownMenuItem(
-                value: 'Petisah Tengah',
-                child: Paragraph(
-                  'Petisah Tengah',
+                  'Female',
                   color: Colors.black87,
                 ),
               ),
@@ -102,8 +67,93 @@ class PersonalInfoBiodataForm extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const TextInput(
-            label: 'Postal Code',
+            label: 'Email',
             isRequired: true,
+            readOnly: true,
+            initialValue: 'test@gmail.com',
+          ),
+          const SizedBox(height: 16),
+          const TextInput(
+            label: 'Phone',
+            isRequired: true,
+            keyboardType: TextInputType.phone,
+          ),
+          const SizedBox(height: 16),
+          const DropdownField<String>(
+            label: 'Education',
+            isRequired: true,
+            values: [
+              DropdownMenuItem(
+                value: 'Doctoral Degree',
+                child: Paragraph(
+                  'Doctoral Degree',
+                  color: Colors.black87,
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'Master Degree',
+                child: Paragraph(
+                  'Master Degree',
+                  color: Colors.black87,
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'Bachelor Degree',
+                child: Paragraph(
+                  'Bachelor Degree',
+                  color: Colors.black87,
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'High School',
+                child: Paragraph(
+                  'High School',
+                  color: Colors.black87,
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'Middle School',
+                child: Paragraph(
+                  'Middle School',
+                  color: Colors.black87,
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'Elementary School',
+                child: Paragraph(
+                  'Elementary School',
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          const DropdownField<String>(
+            label: 'Marital Status',
+            isRequired: true,
+            values: [
+              DropdownMenuItem(
+                value: 'Married',
+                child: Paragraph(
+                  'Married',
+                  color: Colors.black87,
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'Single',
+                child: Paragraph(
+                  'Single',
+                  color: Colors.black87,
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'Divorced',
+                child: Paragraph(
+                  'Divorced',
+                  color: Colors.black87,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: kBottomNavigationBarHeight),
         ],

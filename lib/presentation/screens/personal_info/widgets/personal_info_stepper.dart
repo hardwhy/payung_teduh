@@ -16,6 +16,9 @@ class PersonalInfoStepper extends StatelessWidget {
           height: 100,
           child: EasyStepper(
             activeStep: state.step,
+            finishedStepTextColor: Colors.deepPurple,
+            activeStepTextColor: Colors.deepPurple,
+            unreachedStepTextColor: Colors.deepPurple[100],
             activeStepBorderType: BorderType.normal,
             borderThickness: 5,
             activeStepBorderColor: Colors.deepPurple,

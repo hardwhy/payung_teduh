@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payung_teduh/presentation/screens/personal_info/cubits/stepper/stepper_cubit.dart';
+import 'package:payung_teduh/presentation/screens/personal_info/widgets/personal_info_address_form.dart';
 import 'package:payung_teduh/presentation/screens/personal_info/widgets/personal_info_biodata_form.dart';
 import 'package:payung_teduh/presentation/screens/personal_info/widgets/personal_info_stepper.dart';
 import 'package:payung_teduh/presentation/themes/themes.dart';
@@ -31,13 +32,21 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
           width: double.infinity,
           child: Column(
             children: [
-              const Flexible(
+              Flexible(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                   child: Column(
                     children: [
-                      PersonalInfoStepper(),
-                      PersonalInfoBiodataForm(),
+                      const PersonalInfoStepper(),
+                      BlocBuilder<StepperCubit, StepperState>(
+                        builder: (context, state) {
+                          return [
+                            const PersonalInfoBiodataForm(),
+                            const PersonalInfoAddressForm(),
+                            const PersonalInfoAddressForm()
+                          ][state.step];
+                        },
+                      ),
                     ],
                   ),
                 ),

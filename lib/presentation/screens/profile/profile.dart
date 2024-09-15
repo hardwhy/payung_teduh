@@ -71,17 +71,20 @@ class ProfileScreen extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 56,
-                          width: 56,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.deepPurple[100],
-                          ),
-                          child: const H2(
-                            'A',
-                            color: Colors.white,
+                        Hero(
+                          tag: 'profile-pict',
+                          child: Container(
+                            height: 56,
+                            width: 56,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.deepPurple[100],
+                            ),
+                            child: const H2(
+                              'A',
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 16),
@@ -90,8 +93,12 @@ class ProfileScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            H3(
-                              'Ayi Hardiyanto',
+                            Hero(
+                              tag: 'profile-name',
+                              child: H3(
+                                'Ayi Hardiyanto',
+                                color: Colors.black,
+                              ),
                             ),
                             Paragraph(
                               '17 Year(s)',

@@ -18,9 +18,12 @@ class HomeAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Paragraph('Gutten Nacht!'),
-              H2(
-                'Ayi Hardiyanto',
-                color: Colors.deepPurple,
+              Hero(
+                tag: 'profile-name',
+                child: H2(
+                  'Ayi Hardiyanto',
+                  color: Colors.deepPurple,
+                ),
               )
             ],
           ),
@@ -34,16 +37,19 @@ class HomeAppBar extends StatelessWidget {
             onTap: () {},
           ),
           const SizedBox(width: 8),
-          Ripplify(
-            onTap: () {
-              Navigator.pushNamed(context, Routes.profile);
-            },
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Colors.deepPurple[200]),
-            child: Paragraph.bold(
-              'A',
-              color: Colors.deepPurple[50],
+          Hero(
+            tag: 'profile-pict',
+            child: Ripplify(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.profile);
+              },
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: Colors.deepPurple[200]),
+              child: Paragraph.bold(
+                'A',
+                color: Colors.deepPurple[50],
+              ),
             ),
           )
         ],

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payung_teduh/presentation/screens/personal_info/cubits/stepper/stepper_cubit.dart';
 import 'package:payung_teduh/presentation/screens/personal_info/widgets/personal_info_address_form.dart';
 import 'package:payung_teduh/presentation/screens/personal_info/widgets/personal_info_biodata_form.dart';
+import 'package:payung_teduh/presentation/screens/personal_info/widgets/personal_info_company_form.dart';
 import 'package:payung_teduh/presentation/screens/personal_info/widgets/personal_info_stepper.dart';
 import 'package:payung_teduh/presentation/themes/themes.dart';
 import 'package:payung_teduh/presentation/widgets/widgets.dart';
@@ -43,7 +44,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                           return [
                             const PersonalInfoBiodataForm(),
                             const PersonalInfoAddressForm(),
-                            const PersonalInfoAddressForm()
+                            const PersonalInfoCompanyForm()
                           ][state.step];
                         },
                       ),
@@ -76,7 +77,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                         Expanded(
                           child: Knob(
                             onTap: context.stepperCubit.next,
-                            title: 'Next',
+                            title: state.step == 2 ? 'Save' : 'Next',
                           ),
                         ),
                       ],

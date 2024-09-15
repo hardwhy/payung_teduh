@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:payung_teduh/common/injection/injection.dart';
 import 'package:payung_teduh/common/route/src/routes.dart';
 import 'package:payung_teduh/common/route/src/routing.dart';
@@ -15,6 +16,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
     return MaterialApp(
       title: 'Flutter Demo',
       initialRoute: Routes.welcome,

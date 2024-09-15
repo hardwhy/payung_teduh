@@ -5,3 +5,5 @@ export 'src/text_input.dart';
 export 'src/dropdown.dart';
 export 'src/knob.dart';
 export 'src/empty.dart';
+export 'src/sheet.dart';
+export 'src/document_picker.dart';

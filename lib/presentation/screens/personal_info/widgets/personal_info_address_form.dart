@@ -19,7 +19,9 @@ class PersonalInfoAddressForm extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.deepPurple[50],
                       borderRadius: BorderRadius.circular(16)),
-                  onTap: () {},
+                  onTap: () {
+                    showDocumentPicker(context);
+                  },
                   child: const Column(
                     children: [
                       Icon(

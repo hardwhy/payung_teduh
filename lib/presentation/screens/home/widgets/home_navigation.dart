@@ -54,47 +54,39 @@ class HomeNavigation extends StatelessWidget {
                     shrinkWrap: true,
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     childAspectRatio: 1,
-                    children: [
+                    children: const [
                       MenuIcon(
                         icon: Icons.home_outlined,
                         text: 'Home',
-                        onTap: () {},
                       ),
                       MenuIcon(
                         icon: Icons.search,
                         text: 'Search',
-                        onTap: () {},
                       ),
                       MenuIcon(
                         icon: Icons.shopping_cart_outlined,
                         text: 'Cart',
-                        onTap: () {},
                       ),
                       MenuIcon(
                         icon: Icons.receipt_long_sharp,
                         text: 'Transactions',
-                        onTap: () {},
                       ),
                       MenuIcon(
                         icon: Icons.confirmation_num_outlined,
                         text: 'Voucher',
-                        onTap: () {},
                       ),
                       MenuIcon(
                         icon: Icons.location_on_outlined,
                         text: 'Address',
-                        onTap: () {},
                       ),
                       MenuIcon(
                         icon: Icons.people_outline,
                         text: 'Connections',
-                        onTap: () {},
                       ),
                       MenuIcon(
                         icon: Icons.more_horiz,
                         backgroundColor: Colors.black26,
                         text: 'More',
-                        onTap: () {},
                       ),
                     ],
                   ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payung_teduh/common/injection/injection.dart';
+import 'package:payung_teduh/presentation/screens/home/cubits/wellness/wellness_cubit.dart';
 import 'widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,39 +24,42 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(color: Colors.white),
-        child: Stack(
-          children: [
-            const SafeArea(
-              child: Column(
-                children: [
-                  HomeAppBar(),
-                  SizedBox(height: 20),
-                  HomeContent(),
-                ],
+    return BlocProvider(
+      create: (context) => getIt<WellnessCubit>()..loadWellness(),
+      child: Scaffold(
+        body: Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: const BoxDecoration(color: Colors.white),
+          child: Stack(
+            children: [
+              const SafeArea(
+                child: Column(
+                  children: [
+                    HomeAppBar(),
+                    SizedBox(height: 20),
+                    HomeContent(),
+                  ],
+                ),
               ),
-            ),
-            ValueListenableBuilder(
-              valueListenable: sheetExtent,
-              builder: (context, value, child) {
-                return Align(
-                  alignment: Alignment.topCenter,
-                  child: IgnorePointer(
-                    ignoring: value < .23,
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 100),
-                      color: Colors.black.withOpacity(value - .22),
+              ValueListenableBuilder(
+                valueListenable: sheetExtent,
+                builder: (context, value, child) {
+                  return Align(
+                    alignment: Alignment.topCenter,
+                    child: IgnorePointer(
+                      ignoring: value < .23,
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 100),
+                        color: Colors.black.withOpacity(value - .22),
+                      ),
                     ),
-                  ),
-                );
-              },
-            ),
-            const Positioned.fill(child: HomeNavigation()),
-          ],
+                  );
+                },
+              ),
+              const Positioned.fill(child: HomeNavigation()),
+            ],
+          ),
         ),
       ),
     );

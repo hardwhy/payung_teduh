@@ -1,6 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
+import 'package:payung_teduh/common/constants/constants.dart';
+import 'package:payung_teduh/domain/domain.dart';
+import 'package:payung_teduh/presentation/screens/home/cubits/wellness/wellness_cubit.dart';
 import 'package:payung_teduh/presentation/screens/home/widgets/home_content_section.dart';
 import 'package:payung_teduh/presentation/screens/welcome/welcome_images.dart';
 
@@ -137,18 +142,61 @@ class _HomeContentState extends State<HomeContent>
                 ),
               ),
               const SizedBox(height: 24),
-              GridView.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 16,
-                childAspectRatio: 9 / 12,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                children: List.generate(
-                  7,
-                  (index) => const WellnessCard(),
-                ),
+              BlocBuilder<WellnessCubit, WellnessState>(
+                builder: (context, state) {
+                  if (state.wellnessList.isEmpty) {
+                    return Column(
+                      children: [
+                        const Empty(
+                          imageAsset: ImageAssets.empty,
+                          imageSize: 200,
+                          title: 'Nothing to see here',
+                          description:
+                              'Come back later, you might find something interesing, Ciao!',
+                        ),
+                        const SizedBox(height: 16),
+                        Knob(
+                          title: 'Generate 6 New Wellnesses',
+                          onTap: context.wellnessCubit.generateData,
+                        )
+                      ],
+                    );
+                  }
+                  if (state.isLoading) {
+                    return const CircularProgressIndicator(
+                      color: Colors.deepPurple,
+                    );
+                  }
+                  return Column(
+                    children: [
+                      GridView.count(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 16,
+                        crossAxisSpacing: 16,
+                        childAspectRatio: 9 / 12,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        children: List.generate(
+                          state.wellnessList.length,
+                          (index) => WellnessCard(
+                            wellness: state.wellnessList.elementAt(index),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        width: double.infinity,
+                        child: Knob(
+                          title: 'Clear Wellnesses',
+                          backgroundColor: Colors.red,
+                          onTap: context.wellnessCubit.clearData,
+                        ),
+                      )
+                    ],
+                  );
+                },
               ),
               const SizedBox(height: kToolbarHeight * 3)
             ],
@@ -160,15 +208,19 @@ class _HomeContentState extends State<HomeContent>
 }
 
 class WellnessCard extends StatelessWidget {
+  final Wellness wellness;
   const WellnessCard({
     super.key,
+    required this.wellness,
   });
 
   @override
   Widget build(BuildContext context) {
     return Ripplify(
       rippleBorderRadius: BorderRadius.circular(16),
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, 'no-route');
+      },
       decoration: BoxDecoration(
         boxShadow: Shadows.elevation1(color: Colors.deepPurple),
         color: Colors.deepPurple[50],
@@ -186,30 +238,37 @@ class WellnessCard extends StatelessWidget {
               ),
             ),
             width: double.infinity,
-            child: SvgPicture.asset(
-              WelcomeImages.page1,
-              height: 80,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
+              ),
+              child: Image.network(
+                wellness.imagePath,
+                fit: BoxFit.cover,
+                height: 80,
+              ),
             ),
           ),
-          const Flexible(
+          Flexible(
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Paragraph(
-                    'Digital Voucer of Indomart and Alfamart merged and Polimerisated',
+                    wellness.name,
                     color: Colors.deepPurple,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Paragraph.bold(
-                    'Rp12.000,00',
+                    'Rp${NumberFormat("#,##0.00", "de_DE").format(wellness.price)}',
                   ),
                   Body1(
-                    'Limited Offer',
+                    wellness.isLimitedOffer ? 'Limited Offer' : '',
                     color: Colors.black54,
                   ),
                 ],

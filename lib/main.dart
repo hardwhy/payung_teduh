@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:payung_teduh/common/injection/injection.dart';
 import 'package:payung_teduh/common/route/src/routes.dart';
 import 'package:payung_teduh/common/route/src/routing.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
   runApp(const MyApp());
 }
 

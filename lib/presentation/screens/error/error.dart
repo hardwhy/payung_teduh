@@ -11,22 +11,12 @@ class ErrorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(elevation: 0, leading: const Back()),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            SvgPicture.asset(
-              ImageAssets.begging,
-              height: 400,
-            ),
-            const SizedBox(height: 24),
-            const H3(
-              'Something went wrong!',
-              color: Colors.deepPurple,
-            ),
-            const SizedBox(height: 8),
-            const Paragraph('I wish I had enough time to finish this page. :('),
-          ],
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: Empty(
+          imageAsset: ImageAssets.begging,
+          title: 'Something went wrong!',
+          description: 'I wish I had enough time to finish this page. :(',
         ),
       ),
     );

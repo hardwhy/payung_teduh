@@ -1,0 +1,1 @@
+export 'src/wellness_repository.dart';

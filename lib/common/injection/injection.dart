@@ -1,0 +1,1 @@
+export 'src/setup_injection.dart';

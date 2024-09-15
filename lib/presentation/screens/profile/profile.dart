@@ -4,6 +4,7 @@ import 'package:payung_teduh/common/route/route.dart';
 
 import 'package:payung_teduh/presentation/themes/themes.dart';
 import 'package:payung_teduh/presentation/widgets/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileItem {
   final String name;
@@ -36,6 +37,12 @@ class ProfileScreen extends StatelessWidget {
       ProfileItem(
         name: 'Logout',
         icon: Icons.power_settings_new_outlined,
+        onTap: () async {
+          (await SharedPreferences.getInstance()).clear();
+          if (context.mounted) {
+            Navigator.pushReplacementNamed(context, Routes.welcome);
+          }
+        },
       ),
     ];
     return Scaffold(

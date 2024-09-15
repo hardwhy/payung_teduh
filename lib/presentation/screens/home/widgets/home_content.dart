@@ -127,12 +127,18 @@ class _HomeContentState extends State<HomeContent>
                   children: [
                     const H3('Explore Wellness'),
                     const Spacer(),
-                    Ripplify(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.arrow_upward,
-                        color: Colors.deepPurple,
-                      ),
+                    BlocBuilder<WellnessCubit, WellnessState>(
+                      builder: (context, state) {
+                        return Ripplify(
+                          onTap: context.wellnessCubit.sort,
+                          child: Icon(
+                            state.isAscending
+                                ? Icons.arrow_downward
+                                : Icons.arrow_upward,
+                            color: Colors.deepPurple,
+                          ),
+                        );
+                      },
                     ),
                     const Icon(
                       Icons.sort,

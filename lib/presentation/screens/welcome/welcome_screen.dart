@@ -62,9 +62,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           height: double.infinity,
           width: double.infinity,
           child: BlocConsumer<WelcomeCubit, WelcomeState>(
-            listener: (context, state) {
-              if (state.isInitial == false) {
-                Navigator.pushReplacementNamed(context, Routes.home);
+            listener: (context, state) async {
+              if (state.isInitial == false && context.mounted) {
+                await Future.delayed(const Duration(seconds: 2), () {});
+                if (context.mounted) {
+                  Navigator.pushReplacementNamed(context, Routes.home);
+                }
               }
             },
             builder: (context, state) {

@@ -22,7 +22,10 @@ class WellnessCubit extends Cubit<WellnessState> {
     try {
       final wellnessList = await repository.getWellnessList();
       // Set the wellness list and stop loading
-      emit(state.copyWith(isLoading: false, wellnessList: wellnessList));
+      emit(state.copyWith(
+          isLoading: false,
+          wellnessList: wellnessList
+            ..sort((a, b) => a.name.compareTo(b.name))));
     } catch (e) {
       // Set error message and stop loading
       emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
@@ -55,5 +58,17 @@ class WellnessCubit extends Cubit<WellnessState> {
   Future<void> clearData() async {
     await repository.clear();
     await loadWellness();
+  }
+
+  Future<void> sort({bool? isAsc}) async {
+    final ascending = isAsc ?? !state.isAscending;
+    List<Wellness> list = List<Wellness>.from(state.wellnessList);
+    if (ascending) {
+      list.sort((a, b) => a.name.compareTo(b.name));
+    } else {
+      list.sort((a, b) => b.name.compareTo(a.name));
+    }
+
+    emit(state.copyWith(isAscending: ascending, wellnessList: list));
   }
 }

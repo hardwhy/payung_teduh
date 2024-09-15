@@ -27,7 +27,9 @@ class MenuIcon extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Ripplify(
-          onTap: onTap,
+          onTap: () {
+            Navigator.pushNamed(context, 'no-route');
+          },
           rippleBorderRadius: BorderRadius.circular(90),
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(

@@ -10,7 +10,7 @@ extension StepperCubitExt on BuildContext {
 class StepperCubit extends Cubit<StepperState> {
   StepperCubit() : super(StepperState());
 
-  void changeStep(int stepChange) {
+  void _changeStep(int stepChange) {
     final step = state.step + stepChange;
     final stepFlags = List<bool>.from(state.stepFlags);
 
@@ -20,7 +20,14 @@ class StepperCubit extends Cubit<StepperState> {
     emit(state.copyWith(step: step, stepFlags: stepFlags));
   }
 
-  void next() => changeStep(1);
+  void to(int step) {
+    final enabledStep = state.stepFlags[step];
+    if (enabledStep) {
+      emit(state.copyWith(step: step));
+    }
+  }
 
-  void previous() => changeStep(-1);
+  void next() => _changeStep(1);
+
+  void previous() => _changeStep(-1);
 }

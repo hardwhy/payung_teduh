@@ -15,6 +15,7 @@ class PersonalInfoStepper extends StatelessWidget {
         return SizedBox(
           height: 100,
           child: EasyStepper(
+            enableStepTapping: true,
             activeStep: state.step,
             finishedStepTextColor: Colors.deepPurple,
             activeStepTextColor: Colors.deepPurple,
@@ -31,6 +32,9 @@ class PersonalInfoStepper extends StatelessWidget {
               lineType: LineType.dashed,
               lineLength: 50,
             ),
+            onStepReached: (index) {
+              context.stepperCubit.to(index);
+            },
             steps: [
               EasyStep(
                 activeIcon: Icon(

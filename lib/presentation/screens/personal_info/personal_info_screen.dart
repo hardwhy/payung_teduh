@@ -34,21 +34,25 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
           child: Column(
             children: [
               Flexible(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Column(
-                    children: [
-                      const PersonalInfoStepper(),
-                      BlocBuilder<StepperCubit, StepperState>(
-                        builder: (context, state) {
-                          return [
-                            const PersonalInfoBiodataForm(),
-                            const PersonalInfoAddressForm(),
-                            const PersonalInfoCompanyForm()
-                          ][state.step];
-                        },
-                      ),
-                    ],
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  trackVisibility: true,
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Column(
+                      children: [
+                        const PersonalInfoStepper(),
+                        BlocBuilder<StepperCubit, StepperState>(
+                          builder: (context, state) {
+                            return [
+                              const PersonalInfoBiodataForm(),
+                              const PersonalInfoAddressForm(),
+                              const PersonalInfoCompanyForm()
+                            ][state.step];
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
